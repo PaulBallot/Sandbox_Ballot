@@ -64,5 +64,3 @@ pip freeze > requirements.txt
 
 ### Install from Requirements
 pip install -r requirements.txt
-
-test test
