@@ -16,5 +16,5 @@ Undo last change with commit history
 Allows you to pick selected commits from other branches
 
 ### Git rebase (advanced)
-test test
+
 
