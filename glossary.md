@@ -47,3 +47,20 @@ Push to upload your changes
 
 ### Git Fork
 copy repot to create new copy if repository on your own account
+
+
+## Python Environment
+Maybe checkout https://pypi.org/project/pip-tools/
+
+### Create Env
+python -m venv .venv
+source .venv/bin/activate
+
+### Deactivate Env
+deactivate
+
+### Create & update Requirements
+pip freeze > requirements.txt
+
+### Install from Requirements
+pip install -r requirements.txt
