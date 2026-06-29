@@ -1,4 +1,9 @@
 ## GIT Tutorial 
+Link 1: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/1-setting-up/#__tabbed_1_2
+Link 2: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/2-branching-out/
+Link 3: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/3-rewriting-history/
+Link 4: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/4-remote-git-github/
+
 
 ### Shortcut:
 Terminal CMD+J
@@ -50,7 +55,12 @@ copy repot to create new copy if repository on your own account
 
 
 ## Python Environment
+Link 1: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/2-virtualenv/4-python-environments/
+Link 2: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/2-virtualenv/5-reproducible-dependencies/
+
 Maybe checkout https://pypi.org/project/pip-tools/
+
+Important: Add a .gitignore feature from now on: Create a .gitignore file, add .venv/ to the file and save it.
 
 ### Create Env
 python -m venv .venv
