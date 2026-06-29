@@ -33,6 +33,9 @@ tells me my current branch and what to do.
 ## Git Remote
 Online repository for projects
 
+### Git
+Weird Stuff
+
 ### Git Fetch
 Asking the server whether there are any changes in the history
 
