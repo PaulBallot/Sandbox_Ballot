@@ -77,5 +77,7 @@ pip freeze > requirements.txt
 ### Install from Requirements
 pip install -r requirements.txt
 
-# Day II: 
+# Day II: Reproduceable Research
+If in doubt about anything on research software: https://zenodo.org/records/15213042
+Turwing Way Handbood for reproducable research
 
