@@ -13,6 +13,10 @@ Qualtrics.SurveyEngine.addOnload(function()
   var canPlaySound = true;
   let historiesArray = [];
   var systemMessage = Qualtrics.SurveyEngine.getEmbeddedData('AI_Prompt');
+  const apiKey = Qualtrics.SurveyEngine.getEmbeddedData('OpenRouterAPIKey');
+  const OR_model = Qualtrics.SurveyEngine.getEmbeddedData('setModel');
+  var EvaluationPrompt = Qualtrics.SurveyEngine.getEmbeddedData('EvaluationPrompt');
+  var CheckPrompt = EvaluationPrompt.replace('{{message_text}}', LLMresponse);
   var conversationHistory = [
     {"role": "system", "content": systemMessage},
 ];
@@ -135,12 +139,7 @@ input.addEventListener("keydown", function (event) {
 // Message Check Function
 	
 	function CheckMessage(LLMresponse, callback) {
-  var apiKey = Qualtrics.SurveyEngine.getEmbeddedData('OpenRouterAPIKey');
-  var OR_model = Qualtrics.SurveyEngine.getEmbeddedData('setModel');
-  var EvaluationPrompt = Qualtrics.SurveyEngine.getEmbeddedData('EvaluationPrompt');
   var xhr = new XMLHttpRequest();
-  var CheckPrompt = EvaluationPrompt.replace('{{message_text}}', LLMresponse);
-
   console.log("Check called; Prompt: " + CheckPrompt);
   xhr.open("POST", "https://openrouter.ai/api/v1/chat/completions");
   xhr.timeout = 300000;
@@ -180,21 +179,12 @@ input.addEventListener("keydown", function (event) {
 	
 // End Check Function
 	
-
-  // Costello et al. Function
-function sendChatToOpenRouter(systemMessage, userMessage, onSuccess, onError) {
-  console.log("sendChatToOpenRouter called");
-  const apiKey = Qualtrics.SurveyEngine.getEmbeddedData('OpenRouterAPIKey');
-  const OR_model = Qualtrics.SurveyEngine.getEmbeddedData('setModel');
-  var attemptLimit = 5
-  var currentAttempt = 0
-  function attempt() {
+function attempt_message() {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "https://openrouter.ai/api/v1/chat/completions");
   xhr.timeout = 300000;
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
-
+  xhr.setRequestHeader("Authorization", "Bearer " + apiKey); // This might be a problem!
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
@@ -235,7 +225,13 @@ function sendChatToOpenRouter(systemMessage, userMessage, onSuccess, onError) {
 
   xhr.send(JSON.stringify({ model: OR_model, messages: conversationHistory }));
   }
-	attempt();
+
+  // Costello et al. Function
+function sendChatToOpenRouter(systemMessage, userMessage, onSuccess, onError) {
+  console.log("sendChatToOpenRouter called");
+  var attemptLimit = 5
+  var currentAttempt = 0
+  attempt_message();
 }
 
 	
