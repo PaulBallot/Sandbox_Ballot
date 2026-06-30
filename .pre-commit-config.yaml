@@ -1,0 +1,23 @@
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  # Ruff version.
+  rev: v0.14.8
+  hooks:
+    # Run the linter.
+    - id: ruff-check
+      # Possible choices: [ python, pyi, jupyter ]
+      # Here we exclude Jupyter notebooks
+      types_or: [ python, pyi ]
+
+      # Comment _out_ to only check, not fix
+      args: [ --fix ]
+
+    # Run the formatter.
+    - id: ruff-format
+
+      # Comment _in_ to only check, not fix
+      # args: [ --check ]
+
+      # Possible choices: [ python, pyi, jupyter ]
+      # Here we exclude Jupyter notebooks
+      types_or: [ python, pyi ]
