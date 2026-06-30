@@ -120,3 +120,4 @@ Datatype
 - Formatting: Formatter as a tool to clean up data; pip install ruff; "ruff format" to format every available python file 
 - Linters: Check for errirs, complexity, unused code or performance bottlenecks; they can fix most issues; ruff check (and if you want it to act with --fix)
 - Naming Conventions: Follow style of your language; Variables and Classes are nouns, functions are very; Be overly specific rather than too general! 
+- Git pre-commit hooks: https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/good-code.html#optional-git-pre-commit-hooks (Allow to check your code automatically before every commit and adapt is based on a self-set styleguide)
