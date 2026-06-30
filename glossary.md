@@ -112,3 +112,11 @@ ___________
 Datatype
     Description of Output
 """
+
+#### Online Documentation
+- Create documentation automatically (e.g. via Sphinx or Rxygen)
+
+### Coding Conventions
+- Formatting: Formatter as a tool to clean up data; pip install ruff; "ruff format" to format every available python file 
+- Linters: Check for errirs, complexity, unused code or performance bottlenecks; they can fix most issues; ruff check (and if you want it to act with --fix)
+- Naming Conventions: Follow style of your language; Variables and Classes are nouns, functions are very; Be overly specific rather than too general! 
