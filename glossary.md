@@ -96,3 +96,19 @@ Answers 3 Questions: Why should I use the software, how do I use it and how can 
 - License
 - recommended citation (see also CITATION.cff)
 
+
+#### DocStrings
+Documentation withing function that automatically creates documentation and help text; preferred over simple comments (Roxygen for R!)
+
+"""
+Description Text
+Paramterers
+___________
+variable : Datatype
+    Description of Variable
+
+Returns
+___________
+Datatype
+    Description of Output
+"""

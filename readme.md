@@ -4,14 +4,15 @@ DebateLLM is an easy-to-run Qualtrics-based experimental paradigm for interactio
 ## Setup
 DebateLLM includes a [plug-and-play QSF file](www.downloadlink.com) that can be imported directly into Qualtrics. 
 1. To import the downloaded file, please see [the official Qualtrics Documentation](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/). 
-2. Register to [Openrouter](https://openrouter.ai/) 
-3. Aquire credits (e.g., 25$). 
-4. Create an API key. 
-5. For security reasons, please make sure to set a reasonable limit for the API Key. DO NOT SKIP THIS STEP!
-6. After setting the limit, copy the API code, go to the Qualtrics survey flow and past the key in the embedded data field "OpenRouterAPIKey".
+2. Setup the API Key
+- Register to [Openrouter](https://openrouter.ai/). 
+- Aquire credits (e.g., 25$). 
+- Create an API key. 
+- For security reasons, please make sure to set a reasonable limit for the API Key. DO NOT SKIP THIS STEP!
+- After setting the limit, copy the API code, go to the Qualtrics survey flow and past the key in the embedded data field "OpenRouterAPIKey".
 
 ## Usage
-
+After following the steps outlined above the experiment is ready to use. However, multiple customization options are available, including the model, response prompts, evaluation prompts or the order of interaction. Please see the documentation for this. 
 
 
 ## Contributing
