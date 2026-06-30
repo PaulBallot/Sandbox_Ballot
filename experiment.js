@@ -6,17 +6,15 @@ Qualtrics.SurveyEngine.addOnload(function()
   const resetButton = document.getElementById("Reset-button");
   const submitButton = document.getElementById("submit-button");
   const start = Date.now();
- // itemNR needs to be adapted for every unique item, otherwise it will overwrite existing files!
- // Also: You need to setup a "x_Lead" and "x_ConversationHistory" variable in qualtrics for every item.
   var itemNr = 1; 
   var ResetCounter = 0;
   var canPlaySound = true;
   let historiesArray = [];
   var systemMessage = Qualtrics.SurveyEngine.getEmbeddedData('AI_Prompt');
-  const apiKey = Qualtrics.SurveyEngine.getEmbeddedData('OpenRouterAPIKey');
-  const OR_model = Qualtrics.SurveyEngine.getEmbeddedData('setModel');
+  var apiKey = Qualtrics.SurveyEngine.getEmbeddedData('OpenRouterAPIKey');
+  var OR_model = Qualtrics.SurveyEngine.getEmbeddedData('setModel');
   var EvaluationPrompt = Qualtrics.SurveyEngine.getEmbeddedData('EvaluationPrompt');
-  var CheckPrompt = EvaluationPrompt.replace('{{message_text}}', LLMresponse);
+  var MinimumChatTime = Qualtrics.SurveyEngine.getEmbeddedData('MinimumChatTimeInMs');
   var conversationHistory = [
     {"role": "system", "content": systemMessage},
 ];
@@ -110,8 +108,6 @@ function enableSend() {
 
 	
 function delaySubmit() {
-	//submitButton.disabled = true;
-	//setTimeout(() => {submitButton.disabled = false;}, 60000);
 	setTimeout(() => {submitButton.style.background='#0B6DE0';}, 60000); //hover colour: #04AA6D
 }
 delaySubmit();
@@ -135,11 +131,13 @@ input.addEventListener("keydown", function (event) {
   }
 });
 		
-	
-// Message Check Function
+
 	
 	function CheckMessage(LLMresponse, callback) {
+  var CheckPrompt = EvaluationPrompt.replace('{{message_text}}', LLMresponse);
   var xhr = new XMLHttpRequest();
+
+
   console.log("Check called; Prompt: " + CheckPrompt);
   xhr.open("POST", "https://openrouter.ai/api/v1/chat/completions");
   xhr.timeout = 300000;
@@ -179,12 +177,12 @@ input.addEventListener("keydown", function (event) {
 	
 // End Check Function
 	
-function attempt_message() {
+  function attempt_message_generation() {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "https://openrouter.ai/api/v1/chat/completions");
   xhr.timeout = 300000;
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "Bearer " + apiKey); // This might be a problem!
+  xhr.setRequestHeader("Authorization", "Bearer " + apiKey); // This might be an issue
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
@@ -224,14 +222,15 @@ function attempt_message() {
   };
 
   xhr.send(JSON.stringify({ model: OR_model, messages: conversationHistory }));
-  }
+  }	
+
 
   // Costello et al. Function
 function sendChatToOpenRouter(systemMessage, userMessage, onSuccess, onError) {
   console.log("sendChatToOpenRouter called");
   var attemptLimit = 5
   var currentAttempt = 0
-  attempt_message();
+	attempt_message_generation();
 }
 
 	
@@ -263,8 +262,8 @@ window.Reset = function()	{
 
 window.Submit = function()	{
 let ms = Date.now() - start;
-if (ms < 60000) {
-	alert("Please interact with the Chatbot for at least 60 seconds.")
+if (ms < MinimumChatTime) {
+	alert("Please interact with the Chatbot for at least " + MinimumChatTime/1000 + " seconds.")
 }
 else {
 	
