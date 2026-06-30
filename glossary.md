@@ -85,3 +85,14 @@ Exit: exit()
 If in doubt about anything on research software: https://zenodo.org/records/15213042
 Turwing Way Handbood for reproducable research
 
+### Readme Files
+Answers 3 Questions: Why should I use the software, how do I use it and how can I install it?
+
+#### Structure: 
+- Descriptive Title
+- Motivation, Setup
+- Copy-paastable quick start code example
+- links or instructions on how to contribute
+- License
+- recommended citation (see also CITATION.cff)
+
