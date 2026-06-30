@@ -1,3 +1,5 @@
+# Day I: Git & Dependencies
+
 ## GIT Tutorial 
 Link 1: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/1-setting-up/#__tabbed_1_2
 Link 2: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/2-branching-out/
@@ -74,3 +76,6 @@ pip freeze > requirements.txt
 
 ### Install from Requirements
 pip install -r requirements.txt
+
+# Day II: 
+
