@@ -6,6 +6,11 @@ Link 2: https://centrefordigitalhumanities.github.io/research-software-summer-sc
 Link 3: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/3-rewriting-history/
 Link 4: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/4-remote-git-github/
 
+# ALWAYS initalize
+git init
+
+#Clone
+git clone <link>
 
 ### Shortcut:
 Terminal CMD+J
