@@ -128,8 +128,10 @@ Datatype
 - Git pre-commit hooks: https://carpentries-incubator.github.io/reproducible-research-through-reusable-code-in-1-day/good-code.html#optional-git-pre-commit-hooks (Allow to check your code automatically before every commit and adapt is based on a self-set styleguide)
 - functions are written with lower case and _ between words
 
-### Modular Coding
+#### Modular Coding
 As many small functions as possible
 
-### License
+#### License
 You need to give your project a license so others can work on it! 
+
+
