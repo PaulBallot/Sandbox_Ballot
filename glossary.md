@@ -134,4 +134,7 @@ As many small functions as possible
 #### License
 You need to give your project a license so others can work on it! 
 
+# Day III: 
 
+#### gitignore
+Files with a periode (.vscode) are not supposed to be public on github, they are only for our version, so add them to gitignore!
