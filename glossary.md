@@ -1,5 +1,9 @@
 # Day I: Git & Dependencies
 
+Main learnings:
+Run python code in scripts and pip install  and create virtual environments and stuff like that in the Terminal
+
+
 ## GIT Tutorial 
 Link 1: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/1-setting-up/#__tabbed_1_2
 Link 2: https://centrefordigitalhumanities.github.io/research-software-summer-school/day-1/1-git/2-branching-out/
@@ -138,3 +142,37 @@ You need to give your project a license so others can work on it!
 
 #### gitignore
 Files with a periode (.vscode) are not supposed to be public on github, they are only for our version, so add them to gitignore!
+
+# Day IV: Scrappers & API
+
+### API
+HTTP requestos: GET, POST, PUT; DELETE
+GET: Just ask Questions
+Post: Provide additional information with request
+
+Status Codes:
+- 2xx: Success
+- 4xx: Client Error 
+- 5xx: Server Error (valid request but the system fails)
+
+Request: Headers
+Settings for GTTP requests and responses
+
+Command on MacOs: cutl <url>
+":variable" in documentation code indicates that you need to input a specific variable
+
+In Python:
+requests package
+
+import request
+response = requests.get("https://fruityvice.com/api/fruit/banana")
+response.content
+response.text (return string of content)
+response.status_code
+data = response.json()
+data["nutritions"]["sugar"]
+requests.get(url, params=parameters) (creates parameters)
+
+
+### Pracitcal Approach to Web Scraping
+
